@@ -35,32 +35,33 @@ illustrated in Figure 1.
 
 **Why** **Does** **Version** **Control** **in** **MLMatter?**
 
-> • **Improves** **Transparency** **and** **Traceability**: Version
-> control creates a digital trail of breadcrumbs. It keeps a record of
-> the modifications, encapsulating the who, what, when, and why—ensuring
-> full visibility into the changes made throughout an ML project's
-> lifecycle.
->
-> • **Collaboration** **Boost**: By maintaining an orderly log of
-> versioned data, code, and models, teams can develop simultaneously and
-> merge their changes with clarity, fostering a collaborative
-> environment.
->
-> • **Ensures** **Reproducibility:** Reproducibility is crucial for
-> ensuring the integrity and credibility of the results, the ability to
-> perform root cause analysis, and the facilitation of peer review and
-> collaboration across teams. Rigorous version control ensures that
-> every model and experiment can be recreated, cementing the foundation
-> for reproducibility.
+- **Improves** **Transparency** **and** **Traceability**: Version
+control creates a digital trail of breadcrumbs. It keeps a record of
+the modifications, encapsulating the who, what, when, and why—ensuring
+full visibility into the changes made throughout an ML project's
+lifecycle.
 
-<img src="./images/jbee2tyi.png"
-style="width:5.66597in;height:2.46873in" />Reflecting on our initial
+- **Collaboration** **Boost**: By maintaining an orderly log of
+versioned data, code, and models, teams can develop simultaneously and
+merge their changes with clarity, fostering a collaborative
+environment.
+
+- **Ensures** **Reproducibility:** Reproducibility is crucial for
+ensuring the integrity and credibility of the results, the ability to
+perform root cause analysis, and the facilitation of peer review and
+collaboration across teams. Rigorous version control ensures that
+every model and experiment can be recreated, cementing the foundation
+for reproducibility.
+
+Reflecting on our initial
 hypothetical scenario, if ML version control is in place, the data
 science team could effortlessly backtrack to the original data, code,
 and models that generated the forecasts, allowing them to reconstruct
 the model and understand any variances between the previous and latest
 results, thereby reinforcing stakeholder confidence in the ML processes.
 
+<img src="./images/jbee2tyi.png"
+style="width:5.66597in;height:2.46873in" />
 > *Figure* *1:* *Example* *of* *version* *control* *timeline* *for*
 > *machine* *learning,* *illustrating* *the* *journey* *of* *a*
 > *machine* *learning* *project* *managed* *with* *version* *control*
@@ -89,27 +90,26 @@ daily work in data science and machine learning.
 
 **Table** **of** **Contents**
 
-*1.* *Introduction* *to* *Version* *Control*
-*...................................................................................................................................2*
-*2.* *Version* *Control* *in* *Software* *Engineering* *vs* *Machine*
+*1.* *Introduction to Version Control*
+
+*2.* *Version Control in Software Engineering vs. Machine*
 *Learning*
-*.................................................................................3*
-*3.* *Benefits* *of* *Versioning* *in*
-*ML........................................................................................................................................3*
-*4.* *Version* *Control* *for* *Code*
-*.............................................................................................................................................4*
-*5.* *Version* *Control* *for*
-*Data..............................................................................................................................................5*
-*6.* *Version* *Control* *for*
-*Model............................................................................................................................................6*
-*7.* *Practical* *Application* *in* *the* *Energy*
-*Sector..................................................................................................................7*
-*8.*
-*Conclusion....................................................................................................................................................................8*
-*9.*
-*Reference......................................................................................................................................................................8*
-*10.*
-*Appendix..................................................................................................................................................................8*
+
+*3.* *Benefits of Versioning in ML*
+
+*4.* *Version Control for Code*
+
+*5.* *Version Control for Data*
+
+*6.* *Version Control for Model*
+
+*7.* *Practical Application in the Energy Sector*
+
+*8.* *Conclusion*
+
+*9.* *Reference*
+
+*10.* *Appendix*
 
 **1.** **Introduction** **to** **Version** **Control**
 
@@ -120,7 +120,7 @@ Version control systems (VCS) is the software tools for implementing
 version control and there are three main types of version control
 systems:
 
-• **Local** **Version** **Control** **Systems:** This version control
+- **Local** **Version** **Control** **Systems:** This version control
 system consists of a simple database stored on a local computer that
 records any changes made to files under revision control. One popular
 example of this VCS is the Revision Control System (RCS), which is still
@@ -133,7 +133,7 @@ and 2) because the changes are saved locally, it is difficult for team
 members to collaborate and share information about their changes with
 one another.
 
-• **Centralised** **Version** **Control** **Systems:** This type of
+- **Centralised** **Version** **Control** **Systems:** This type of
 version control system has a single server that stores all the versioned
 files, and several clients/users that check out the files from the
 central server. Examples of centralised VCS are Microsoft Team
@@ -147,7 +147,7 @@ can make changes and which parts can or cannot be changed. The downside
 is that if the central server is damaged, there’s a high risk of losing
 the entire history of the project (Chacon and Straub, 2014).
 
-• **Distributed** **Version** **Control** **Systems:** In distributed
+- **Distributed** **Version** **Control** **Systems:** In distributed
 VCS, clients don't simply check out the most recent snapshot of the
 files; instead, they mirror the repository, including its entire
 history. This allows for more flexible collaboration and better data
@@ -181,10 +181,7 @@ ML empowers us to make more informed decisions, it also introduces a
 unique set of challenges that can complicate the development and
 maintenance of these systems as compared to traditional software.
 
-<img src="./images/mu52xtse.png"
-style="width:4.64597in;height:2.02431in" />In software engineering,
-version control is often primarily concerned with the evolution of code.
-When a bug is identified or a feature misbehaves, engineers can trace
+In software engineering, version control is often primarily concerned with the evolution of code. When a bug is identified or a feature misbehaves, engineers can trace
 back through the code revisions to understand the changes and correct
 them. The rollback process is generally straightforward, allowing for a
 return to the last stable version or the revision of specific modules.
@@ -199,6 +196,8 @@ hyperparameters, can lead to substantially different model behaviours
 and predictive outcomes. Therefore, robust version control in ML must
 extend beyond code to encapsulate data and models.
 
+<img src="./images/mu52xtse.png"
+style="width:4.64597in;height:2.02431in" />
 > *Figure* *2:* *Example* *of* *version* *control* *timeline* *for*
 > *machine* *learning,* *illustrating* *the* *journey* *of* *a*
 > *machine* *learning* *project* *managed* *with* *version* *control*
@@ -210,26 +209,25 @@ extend beyond code to encapsulate data and models.
 The key benefits of implementing version control of data, code, and
 models for ML are:
 
-> • **Transparency** **and** **Traceability**: By keeping a record of
-> the modifications to the data, code, and models (as depicted in Figure
-> 2), including information about the who, what, when, and why, it
-> provides the team full transparency and traceability of all changes
-> made throughout an ML project's lifecycle.
->
-> • **Collaboration:** Implementing version control allows multiple team
-> members to collaborate and develop simultaneously and then merge their
-> changes with clarity, enabling more efficient teamwork.
->
-> • **Reproducibility**: Reproducibility is critical for guaranteeing
-> the results' integrity and credibility, doing root cause analysis, and
-> facilitating peer review and cross-team collaboration. Rigorous
-> version control of data, code, and models helps ensure that previous
-> models and experiments can be recreated, cementing the foundation for
-> reproducibility.
+- **Transparency** **and** **Traceability**: By keeping a record of
+the modifications to the data, code, and models (as depicted in Figure
+2), including information about the who, what, when, and why, it
+provides the team full transparency and traceability of all changes
+made throughout an ML project's lifecycle.
+
+- **Collaboration:** Implementing version control allows multiple team
+members to collaborate and develop simultaneously and then merge their
+changes with clarity, enabling more efficient teamwork.
+
+- **Reproducibility**: Reproducibility is critical for guaranteeing
+the results' integrity and credibility, doing root cause analysis, and
+facilitating peer review and cross-team collaboration. Rigorous
+version control of data, code, and models helps ensure that previous
+models and experiments can be recreated, cementing the foundation for
+reproducibility.
 
 **4.** **Version** **Control** **for**
-**Code**<img src="./images/af4evcwz.png"
-style="width:3.21616in;height:1.24306in" />
+**Code**
 
 Whether it is traditional software development or building a machine
 learning system, tracking and managing code changes and effective
@@ -254,6 +252,8 @@ marked to go into the next commit snapshot; and *committed* means the
 changes are stored safely in the local database (Chacon and Straub,
 2014).
 
+<img src="./images/af4evcwz.png"
+style="width:3.21616in;height:1.24306in" />
 > *Figure* *3:* *Simplified* *flowchart* *showing* *how* *changes* *are*
 > *stored* *as* *snapshots* *in* *Git,* *sourced* *from* *(Chacon* *and*
 > *Straub,* *2014).*
@@ -329,30 +329,30 @@ integrity and reproducibility of ML models.
 Below are some of the common strategies for data versioning (John,
 2022):
 
-> • Caching Complete Datasets: Each new version of a dataset is saved in
-> its entirety. It is straightforward but can be storage-intensive for
-> large datasets.
->
-> • Storing Deltas Between Versions: Instead of storing the entire
-> datasets, only the differences or "deltas" between datasets are saved.
-> This method is more storage-efficient, but the reconstruction of
-> specific versions of a dataset can be more complicated.
->
-> • Tracking Record-Level Changes: Modifications are tracked at the
-> record level. This approach is suitable for structural data with
-> frequent and isolated changes at the record level, where each record's
-> history is important.
->
-> • Appending in Immutable Datasets: Changes are appended to an
-> immutable dataset, and file size is used to track changes. This
-> approach is the simplest form of data versioning and is typically used
-> for log files or event stream data.
->
-> • Pipeline Versioning for Derived Data: Rather than versioning the
-> data, the processes or data pipelines used for generating the data are
-> versioned. This approach is helpful when datasets are too large, and
-> it is more efficient to regenerate them from the original data using
-> the recorded transformation steps.
+- Caching Complete Datasets: Each new version of a dataset is saved in
+its entirety. It is straightforward but can be storage-intensive for
+large datasets.
+
+- Storing Deltas Between Versions: Instead of storing the entire
+datasets, only the differences or "deltas" between datasets are saved.
+This method is more storage-efficient, but the reconstruction of
+specific versions of a dataset can be more complicated.
+
+- Tracking Record-Level Changes: Modifications are tracked at the
+record level. This approach is suitable for structural data with
+frequent and isolated changes at the record level, where each record's
+history is important.
+
+- Appending in Immutable Datasets: Changes are appended to an
+immutable dataset, and file size is used to track changes. This
+approach is the simplest form of data versioning and is typically used
+for log files or event stream data.
+
+- Pipeline Versioning for Derived Data: Rather than versioning the
+data, the processes or data pipelines used for generating the data are
+versioned. This approach is helpful when datasets are too large, and
+it is more efficient to regenerate them from the original data using
+the recorded transformation steps.
 
 **A** **brief** **DVC** **tutorial**
 
@@ -519,8 +519,7 @@ a terminal: *mlflow* *server* *--host* *127.0.0.1* *--port* *8080.*
 >
 > c\. Access the MLflow UI at <u>http://127.0.0.1:8080</u> to view run
 > details, including model parameters and performance metrics as shown
-> in Figure 4.<img src="./images//ibedamjs.png"
-> style="width:6.87942in;height:2.51944in" />
+> in Figure 4.
 
 **Additional** **MLflow** **learning** **resources**
 
@@ -539,6 +538,8 @@ comprehensive coverage is particularly beneficial for practitioners
 seeking to deepen their operational knowledge of MLflow in complex ML
 projects.
 
+<img src="./images//ibedamjs.png"
+style="width:6.87942in;height:2.51944in" />
 > *Figure* *4:* *Screenshots* *depicting* *the* *MLflow* *UI,*
 > *highlighting* *the* *detailed* *logging* *capabilities* *for*
 > *machine* *learning* *experiments* *and* *models.* *It* *includes*
@@ -555,8 +556,7 @@ code, data, and models within a ML use case for the energy sector.
 
 **Overview:**
 
-<img src="./images/ittmlolm.png"
-style="width:2.14097in;height:3.31944in" />A transformer-based neural
+A transformer-based neural
 network model, specifically the Temporal Fusion Transformer, was
 employed to predict one-day-ahead hourly energy prices for Finland's
 Frequency Containment Reserves for Normal Operations (FCR-N) market. The
@@ -579,56 +579,50 @@ approach ensures that the history of code evolution will be
 well-documented, allowing the team to easily trace changes and reproduce
 previous results if needed.
 
-> *Figure* *5:* *ML* *pipeline* *for* *the* *case* *study* *presented*
-> *in* *(Subramanya,*
-
-Data Version Control (DVC) can be used alongside Git to oversee changes
-*Sierla* *and* *Vyatkin,* *2022).* in data, allowing for meticulous
-tracking and versioning of input data. Data
-
+Data Version Control (DVC) can be used alongside Git to oversee changes in data, allowing for meticulous tracking and versioning of input data. Data
 snapshots, both raw and processed (after feature selection), can be
-managed by DVC, and stored remotely, for
+managed by DVC, and stored remotely, for instance, onAWS S3 or Azure Data Lake, ensuring efficient traceability and project reproducibility. Regular reviews of the DVC repository size should be conducted to remove outdated data versions, saving storage costs.
 
-> instance, onAWS S3 or Azure Data Lake, ensuring efficient traceability
-> and project reproducibility. Regular reviews of the DVC repository
-> size should be conducted to remove outdated data versions, saving
-> storage costs.
->
-> **Version** **Control** **for** **Model:**
->
-> MLflow can be used for managing the version control for the model,
-> logging the model architecture, hyperparameters, and performance
-> metrics for each experiment, and the details of each run can be viewed
-> via MLflow’s UI. This ensures good traceability and reproducibility
-> for any model changes. Depending on the project's scalability
-> requirements, models, integrated with MLflow, could be containerised
-> using Docker and managed with Kubernetes or deployed on Databricks for
-> enhanced scalability and management.
->
-> **8.** **Conclusion**
->
-> This document has systematically examined the critical role of version
-> control in enhancing machine learning (ML) practices, with a
-> particular emphasis on its applications within the energy sector. It
-> has illuminated the necessity of version control for ensuring the
-> reproducibility, transparency, and accountability that underpins
-> reliable ML operations. By delving into the specifics of version
-> control for code using Git, for data employing DVC, and for models via
-> MLflow, the document has provided practitioners with practical and
-> actionable guidance to incorporate these version control systems into
-> their ML workflows effectively.
->
-> As the field of data science continues to grow and evolve,
-> particularly in applications such as energy demand forecasting and
-> resource optimization for the energy sector, the need for robust ML
-> version control becomes increasingly evident. This document is
-> designed to equip ML practitioners with a foundational understanding
-> of version control for data, code, and models, enabling them to foster
-> robust ML version control practices on their projects, thereby
-> bolstering the reproducibility, accountability, and integrity of their
-> ML initiatives.
->
-> **9.** **Reference**
+**Version** **Control** **for** **Model:**
+
+MLflow can be used for managing the version control for the model,
+logging the model architecture, hyperparameters, and performance
+metrics for each experiment, and the details of each run can be viewed
+via MLflow’s UI. This ensures good traceability and reproducibility
+for any model changes. Depending on the project's scalability
+requirements, models, integrated with MLflow, could be containerised
+using Docker and managed with Kubernetes or deployed on Databricks for
+enhanced scalability and management.
+
+<img src="./images/ittmlolm.png"
+style="width:2.14097in;height:3.31944in" />
+> *Figure* *5:* *ML* *pipeline* *for* *the* *case* *study* *presented*
+> *in* *(Subramanya,*Sierla* *and* *Vyatkin,* *2022).*
+
+
+**8.** **Conclusion**
+
+This document has systematically examined the critical role of version
+control in enhancing machine learning (ML) practices, with a
+particular emphasis on its applications within the energy sector. It
+has illuminated the necessity of version control for ensuring the
+reproducibility, transparency, and accountability that underpins
+reliable ML operations. By delving into the specifics of version
+control for code using Git, for data employing DVC, and for models via
+MLflow, the document has provided practitioners with practical and
+actionable guidance to incorporate these version control systems into
+their ML workflows effectively.
+
+As the field of data science continues to grow and evolve,
+particularly in applications such as energy demand forecasting and resource optimization for the energy sector, the need for robust ML
+version control becomes increasingly evident. This document is
+designed to equip ML practitioners with a foundational understanding
+of version control for data, code, and models, enabling them to foster
+robust ML version control practices on their projects, thereby
+bolstering the reproducibility, accountability, and integrity of their
+ML initiatives.
+
+**9.** **Reference**
 >
 > i\. Chacon, S. and Straub, B. (2014). Pro Git. Berkeley, Ca: Apress.
 >
@@ -658,12 +652,12 @@ managed by DVC, and stored remotely, for
 > to MLOps: Overview and Application to Electricity Market Forecasting.
 > Applied Sciences, \[online\] 12(19), p.9851. doi:
 > <u>https://doi.org/10.3390/app12199851.</u>
-
-viii\. www.marketsandmarkets.com. (n.d.). AI-Powered Energy Sector in
-2023: Products, Companies, and Innovations. Available at:
-<u>https://www.marketsandmarkets.com/industry-news/AI-Powered-Energy-Sector-in-2023-Products-Companies-and-Innovations#:~:text=Top%20companies%20that%20are%20adopting%20AI%20for%20energy%20consumptio</u>
+>
+> viii\. www.marketsandmarkets.com. (n.d.). AI-Powered Energy Sector in
+> 2023: Products, Companies, and Innovations. Available at:
+> <u>https://www.marketsandmarkets.com/industry-news/AI-Powered-Energy-Sector-in-2023-Products-Companies-and-Innovations#:~:text=Top%20companies%20that%20are%20adopting%20AI%20for%20energy%20consumptio</u>
 <u>n</u>.
-
+>
 > ix\. www.w3schools.com. (n.d.). Git Tutorial. Available at:
 > <u>https://www.w3schools.com/git/default.asp?remote=github</u>.
 >
@@ -675,8 +669,8 @@ viii\. www.marketsandmarkets.com. (n.d.). AI-Powered Energy Sector in
 > Available at:
 > <u>https://www.restack.io/docs/mlflow-knowledge-mlflow-open-source-intro#clpe0dphd05zgxh0tsedri9jm.</u>
 >
-> **10.** **Appendix**
->
+**10.** **Appendix**
+
 > The datasets and full Python codes used in the coding tutorials of
 > this document can be accessed in the following GitHub repository:
 > <u>https://github.com/jzkhong/ml-version-control.</u>
