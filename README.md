@@ -267,44 +267,39 @@ Git bash, and for Mac or Linux users, you can use the built-in terminal.
 For this tutorial, we’ll go through three fundamental Git operations:
 creating a repository, committing changes, and viewing commit history.
 
-> a\. Configure Git for the first time and create a Git repository:
->
-> \# Configure your username and email for Git
->
-> git config --global user.name "your-users-name"
->
-> git config --global user.email "your-email@company.com"
->
-> \# Create a new folder called Git-tutorial and navigate to it mkdir
-> version-control-tutorial
->
-> cd version-control-tutorial
->
-> \# Initialise a Git repository git init
->
-> b\. Add an empty *README.md* file to folder and commit the change:
->
-> \# Create an empty README.md file and check if Git has detected the
-> new README.md file echo "" \> README.md
->
-> git status \# the README.md should be listed as untracked file
->
-> \# Use the git add command to begin tracking the file and recheck git
-> status git add README.md
->
-> git status \# the README.md is now listed as changes to be committed
->
-> \# Commit the change (add a clear and concise message for commit to
-> help recall about the changes later) git commit -m "Add an empty
-> README.md file"
->
-> c\. View commit history:
->
-> \# View commit history
->
-> git log \# shows history of changes made, including who, when, and the
-> commit message
+a\. Configure Git for the first time and create a Git repository:
+```bash
+# Configure your username and email for Git
+git config --global user.name "your-users-name"
+git config --global user.email "your-email@company.com"
 
+# Create a new folder called Git-tutorial and navigate to it 
+mkdir version-control-tutorial
+cd version-control-tutorial
+
+# Initialise a Git repository 
+git init
+```
+
+b\. Add an empty *README.md* file to folder and commit the change:
+```bash
+# Create an empty README.md file and check if Git has detected the new README.md file 
+echo "" > README.md
+git status # the README.md should be listed as untracked file
+
+# Use the git add command to begin tracking the file and recheck git status 
+git add README.md
+git status # the README.md is now listed as changes to be committed
+
+# Commit the change (add a clear and concise message for commit to help recall about the changes later) 
+git commit -m "Add an empty README.md file"
+```
+
+c\. View commit history:
+```bash
+# View commit history
+git log # shows history of changes made, including who, when, and the commit message
+```
 **Further** **learning** **materials** **for** **Git**
 
 For those seeking to expand their proficiency in Git, "Pro Git" by
@@ -367,45 +362,42 @@ we will not have to create a new Git repository again. Before beginning
 the tutorial, make sure to install DVC with the pip command: *pip*
 *install* *dvc*.
 
-> a\. Download initial sample data and initialise DVC:
->
-> \# Download DVC sample data from their GitHub repo
->
-> dvc get https://github.com/iterative/dataset-registry
-> tutorials/versioning/data.zip unzip -q data.zip
->
-> rm -f data.zip
->
-> \# Initialise DVC and add data file to DVC tracking dvc init
->
-> dvc add data
->
-> \# Commit the changes
->
-> git add .gitignore data.dvc git commit
->
-> git tag -a
->
-> b\. Download additional data and commit the changes:
->
-> \# Download updated sample data from DVC's GitHub repo and add the
-> updated data to DVC tracking dvc get
-> https://github.com/iterative/dataset-registry
-> tutorials/versioning/new-labels.zip unzip -q new-labels.zip
->
-> rm -f new-labels.zip dvc add data
->
-> \# Commit the changes git add data.dvc
->
-> git commit git tag -a
->
-> c\. Revert to initial training dataset with 1000 images:
->
-> \# Revert to initial dataset (1000 images for training) git checkout
-> v1.0
->
-> dvc checkout \# training data folder should now contains only 1000
-> images
+a\. Download initial sample data and initialise DVC:
+```bash
+# Download DVC sample data from their GitHub repo
+dvc get https://github.com/iterative/dataset-registrytutorials/versioning/data.zip 
+unzip -q data.zip
+rm -f data.zip
+
+# Initialise DVC and add data file to DVC tracking 
+dvc init
+dvc add data
+
+# Commit the changes
+git add .gitignore data.dvc 
+git commit -m "Initial data with 1000 training images"
+git tag -a "v1.0" -m "Training dataset with 1000 images"
+```
+b\. Download additional data and commit the changes:
+```bash
+# Download updated sample data from DVC's GitHub repo and add the updated data to DVC tracking 
+dvc get https://github.com/iterative/dataset-registrytutorials/versioning/new-labels.zip 
+unzip -q new-labels.zip
+rm -f new-labels.zip 
+dvc add data
+
+# Commit the changes 
+git add data.dvc
+git commit -m "Updated data with 2000 training images"
+git tag -a "v2.0" -m "Training dataset with 2000 images"
+```
+
+c\. Revert to initial training dataset with 1000 images:
+```bash
+# Revert to initial dataset (1000 images for training) 
+git checkout v1.0
+dvc checkout # training data folder should now contains only 1000 images
+```
 
 **Additional** **learning** **materials** **on** **data** **version**
 **control**
@@ -459,67 +451,60 @@ MLflow with the pip command: *pip* *install* *mlflow*, and launch the
 MLflow tracking server locally by running the following bash command on
 a terminal: *mlflow* *server* *--host* *127.0.0.1* *--port* *8080.*
 
-> a\. Import the required libraries and train a logistic regression
-> model using the iris dataset from *sklearn*:
->
-> import mlflow
->
-> from mlflow.models import infer_signature import pandas as pd
->
-> from sklearn import datasets
->
-> from sklearn.model_selection import train_test_split from
-> sklearn.linear_model import LogisticRegression from sklearn.metrics
-> import accuracy_score
->
-> \# Load the Iris dataset
->
-> X, y = datasets.load_iris(return_X_y=True)
->
-> \# Split the data into training and test sets
->
-> X_train, X_test, y_train, y_test = train_test_split(X, y,
-> test_size=0.3, random_state=42, stratify=y) \# Define the model
-> hyperparameters
->
-> params = {"solver": "lbfgs","max_iter": 500,"multi_class":
-> "auto","random_state": 42,} \# Train the model
->
-> lr = LogisticRegression(\*\*params) lr.fit(X_train, y_train)
->
-> \# Predict on the test set y_pred = lr.predict(X_test) \# Calculate
-> accuracy
->
-> accuracy = accuracy_score(y_test, y_pred)
->
-> b\. Log the details of model using MLflow:
->
-> \# Set the tracking server uri for logging
-> mlflow.set_tracking_uri(uri="http://127.0.0.1:8080") \# Name the
-> MLflow Experiment mlflow.set_experiment("MLflow Quick Tutorial")
->
-> \# Start an MLflow run with mlflow.start_run():
->
-> \# Log the hyperparameters mlflow.log_params(params) \# Log the
-> accuracy metric
->
-> mlflow.log_metric("accuracy", accuracy)
->
-> \# Set a tag that we can use to remind ourselves what this run was for
-> mlflow.set_tag("Training Info", "Basic LR model for iris data")
->
-> \# Infer the model signature
->
-> signature = infer_signature(X_train, lr.predict(X_train)) \# Log the
-> model
->
-> model_info = mlflow.sklearn.log_model(sk_model=lr,
-> artifact_path="iris_model", signature=signature,
-> input_example=X_train, registered_model_name="logistic regressor",)
->
-> c\. Access the MLflow UI at <u>http://127.0.0.1:8080</u> to view run
-> details, including model parameters and performance metrics as shown
-> in Figure 4.
+a\. Import the required libraries and train a logistic regression model using the iris dataset from *sklearn*:
+
+```python
+import mlflow
+from mlflow.models import infer_signature 
+import pandas as pd
+from sklearn import datasets
+from sklearn.model_selection import train_test_split from
+sklearn.linear_model import LogisticRegression from sklearn.metrics
+import accuracy_score
+
+# Load the Iris dataset
+X, y = datasets.load_iris(return_X_y=True)
+# Split the data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y) 
+# Define the model hyperparameters
+params = {"solver": "lbfgs","max_iter": 500,"multi_class": "auto","random_state": 42,} 
+# Train the model
+lr = LogisticRegression(\*\*params) lr.fit(X_train, y_train)
+# Predict on the test set 
+y_pred = lr.predict(X_test) 
+# Calculate accuracy
+accuracy = accuracy_score(y_test, y_pred)
+```
+
+b\. Log the details of model using MLflow:
+```python
+# Set the tracking server uri for logging
+mlflow.set_tracking_uri(uri="http://127.0.0.1:8080") 
+# Name the MLflow Experiment
+ mlflow.set_experiment("MLflow Quick Tutorial")
+
+# Start an MLflow run 
+with mlflow.start_run():
+   # Log the hyperparameters 
+   mlflow.log_params(params) 
+   # Log the accuracy metric
+   mlflow.log_metric("accuracy", accuracy)
+   # Set a tag that we can use to remind ourselves what this run was for
+   mlflow.set_tag("Training Info", "Basic LR model for iris data")
+   # Infer the model signature
+   signature = infer_signature(X_train, lr.predict(X_train)) 
+   # Log the model
+   model_info = mlflow.sklearn.log_model(
+    sk_model=lr, 
+    artifact_path="iris_model", 
+    signature=signature, 
+    input_example=X_train, 
+    registered_model_name="logistic regressor",
+   )
+```
+c\. Access the MLflow UI at <u>http://127.0.0.1:8080</u> to view run
+details, including model parameters and performance metrics as shown
+in Figure 4.
 
 **Additional** **MLflow** **learning** **resources**
 
