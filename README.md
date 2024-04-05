@@ -1,8 +1,7 @@
 **Enhancing** **Machine** **Learning** **(ML)Accountability** **with**
 **Version** **Control**
 
-**The** **Importance** **ofAccountability** **and** **Reproducibility**
-**in** **Data** **Science**
+**The Importance of Accountability and Reproducibility in Data Science**
 
 Imagine a scenario: a team of data scientists in the company has
 developed a cutting-edge machine learning forecast model for residential
